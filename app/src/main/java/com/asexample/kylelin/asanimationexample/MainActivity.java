@@ -1,6 +1,7 @@
 package com.asexample.kylelin.asanimationexample;
 
 import android.animation.ValueAnimator;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.renderscript.Sampler;
 import android.support.v7.app.ActionBarActivity;
@@ -19,6 +20,7 @@ public class MainActivity extends ActionBarActivity {
     ProgressBar pbProgressBar;
     ProgressBar pbLargeProgressBar;
     ProgressBar pbHerProgressBar;
+    ProgressDialog progressDialog;
     boolean swBool;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,7 +61,14 @@ public class MainActivity extends ActionBarActivity {
 
     public void btnCueNumberAnimationClicked(View view)
     {
-        ValueAnimator animator = ValueAnimator.ofFloat(1f,100f);
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_HORIZONTAL);
+        progressDialog.setMax(100);
+        progressDialog.setTitle("Title:這是一條Bar用ValueAnimator控制!");
+        progressDialog.setMessage("Message:這是訊息");
+        progressDialog.show();
+
+        ValueAnimator animator = ValueAnimator.ofFloat(1f, 100f);
         animator.setDuration(1000);
         animator.addUpdateListener(new animationListener());
         animator.addUpdateListener(new animationListener2());
@@ -69,6 +78,8 @@ public class MainActivity extends ActionBarActivity {
         animInt.setDuration(1000);
         animInt.addUpdateListener(new animationListener3());
         animInt.start();
+
+
 //        tvNumberTitle.setText(animator.getAnimatedValue().toString());
     }
 
@@ -98,6 +109,8 @@ public class MainActivity extends ActionBarActivity {
 //            if(.toString().equalsIgnoreCase("100.0"))
             pbProgressBar.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
             pbHerProgressBar.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
+            progressDialog.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
+
         }
     }
 }
