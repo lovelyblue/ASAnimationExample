@@ -10,11 +10,19 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
+        </activity>
+        <activity
+            android:name=".TopLevelActivity"
+            android:label="@string/title_activity_top_level" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name=".TimeAnimatorActivity"
+            android:label="@string/title_activity_time_animator" >
         </activity>
     </application>
 

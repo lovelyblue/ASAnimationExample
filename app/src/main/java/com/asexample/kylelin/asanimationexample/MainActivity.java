@@ -110,7 +110,13 @@ public class MainActivity extends ActionBarActivity {
             pbProgressBar.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
             pbHerProgressBar.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
             progressDialog.setProgress(Integer.parseInt(animation.getAnimatedValue().toString()));
-
         }
+    }
+
+    public void btnBackToList(View view)
+    {
+        Intent intent = new Intent();
+        intent.setClass(this,TopLevelActivity.class);
+        startActivity(intent);
     }
 }
