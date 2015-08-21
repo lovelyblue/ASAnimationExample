@@ -70,12 +70,12 @@ public class TopLevelActivity extends ActionBarActivity {
             if (position == 0)
             {
                 Intent intent = new Intent();
-                intent.setClass(context,MainActivity.class);
+                intent.setClass(TopLevelActivity.this,MainActivity.class);
                 startActivity(intent);
             }else if (position == 1)
             {
                 Intent intent = new Intent();
-                intent.setClass(parent.getContext(),TimeAnimatorActivity.class);
+                intent.setClass(parent.getContext(),TimeAnimatorActivity.class);//(TopLevelActivity.this)
                 startActivity(intent);
             }
             Toast.makeText(context,"按下了Index:"+position,Toast.LENGTH_SHORT).show();
